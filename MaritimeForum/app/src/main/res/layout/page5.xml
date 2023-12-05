@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_profile"
+        android:contentDescription="@string/profile_picture" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:id="@+id/tvNickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="昵称："
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/tvID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ID："
+                android:layout_below="@id/tvNickname"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:layout_alignStart="@id/tvNickname" />
+
+            <TextView
+                android:id="@+id/tvCertification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="认证："
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:layout_below="@id/tvID"
+                android:layout_alignStart="@id/tvID" />
+
+            <ImageView
+                android:id="@+id/ivAdd"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/tvCertification"
+                android:layout_alignBottom="@id/tvCertification"
+                android:layout_marginStart="14dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="1dp"
+                android:layout_toEndOf="@id/tvCertification"
+                android:contentDescription="@string/add"
+                android:src="@drawable/add" />
+
+            <ImageView
+                android:id="@+id/ivArrowRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right_foreground"
+                android:contentDescription="@string/View_more"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginVertical="8dp" />
+
+    <TextView
+        android:id="@+id/tvMyPosts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的发帖"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:drawableEnd="@drawable/ic_arrow_right_foreground"
+        android:gravity="center_vertical"
+        android:paddingVertical="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground" />
+
+    <TextView
+        android:id="@+id/tvMyFavorites"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="我的收藏"
+        android:textAppearance="?attr/textAppearanceListItem"
+        android:drawableEnd="@drawable/ic_arrow_right_foreground"
+        android:gravity="center_vertical"
+        android:paddingVertical="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground" />
+
+    <FrameLayout
+        android:id="@+id/flContent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/white">
+        <!-- Content will go here -->
+    </FrameLayout>
+
+</LinearLayout>
