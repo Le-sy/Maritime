@@ -28,17 +28,18 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.page5, container, false);
 
-        // 设置加号的点击事件
-        ImageView ivAdd = view.findViewById(R.id.ivAdd);
-        ivAdd.setOnClickListener(v -> navigateToNewPage(AddPageActivity.class));
+
 
         // 设置箭头的点击事件
         view.findViewById(R.id.tvMyPosts).setOnClickListener(v -> navigateToNewPage(MyPostsActivity.class));
         view.findViewById(R.id.tvMyFavorites).setOnClickListener(v -> navigateToNewPage(MyFavoritesActivity.class));
+        view.findViewById(R.id.tvMyTopics).setOnClickListener(v -> navigateToNewPage(MyTopicsActivity.class));
+        view.findViewById(R.id.tvMyReplies).setOnClickListener(v -> navigateToNewPage(MyRepliesActivity.class));
         view.findViewById(R.id.ivArrowRight).setOnClickListener(v -> navigateToNewPage(DetailsActivity.class));
 
         return view;
     }
+
 
     private void navigateToNewPage(Class<?> activityClass) {
         Intent intent = new Intent(getActivity(), activityClass);

@@ -1,120 +1,257 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true"> <!-- ScrollView使得内容可以滚动，并填充视口 -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
+        android:orientation="vertical"
+        android:padding="16dp"> <!-- 最外层的LinearLayout包裹了所有内容 -->
 
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@drawable/ic_profile"
-        android:contentDescription="@string/profile_picture" />
-
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp">
-
-            <TextView
-                android:id="@+id/tvNickname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="昵称："
-                android:textAppearance="?attr/textAppearanceListItem"
-                android:layout_alignParentStart="true" />
-
-            <TextView
-                android:id="@+id/tvID"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ID："
-                android:layout_below="@id/tvNickname"
-                android:textAppearance="?attr/textAppearanceListItem"
-                android:layout_alignStart="@id/tvNickname" />
-
-            <TextView
-                android:id="@+id/tvCertification"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="认证："
-                android:textAppearance="?attr/textAppearanceListItem"
-                android:layout_below="@id/tvID"
-                android:layout_alignStart="@id/tvID" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical"> <!-- 水平线性布局包含头像和信息 -->
 
             <ImageView
-                android:id="@+id/ivAdd"
-                android:layout_width="25dp"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/tvCertification"
-                android:layout_alignBottom="@id/tvCertification"
-                android:layout_marginStart="14dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="1dp"
-                android:layout_toEndOf="@id/tvCertification"
-                android:contentDescription="@string/add"
-                android:src="@drawable/add" />
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_profile"
+                android:contentDescription="@string/profile_picture" /> <!-- 用户头像 -->
 
-            <ImageView
-                android:id="@+id/ivArrowRight"
-                android:layout_width="wrap_content"
+            <RelativeLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow_right_foreground"
-                android:contentDescription="@string/View_more"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true" />
-        </RelativeLayout>
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"> <!-- 相对布局包含用户信息和操作按钮 -->
+
+                <TextView
+                    android:id="@+id/tvNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="昵称："
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:layout_alignParentStart="true" /> <!-- 显示用户昵称 -->
+
+                <TextView
+                    android:id="@+id/tvID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ID："
+                    android:layout_below="@id/tvNickname"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:layout_alignStart="@id/tvNickname" /> <!-- 显示用户ID -->
+
+                <TextView
+                    android:id="@+id/tvCertification"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="认证："
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:layout_below="@id/tvID"
+                    android:layout_alignStart="@id/tvID" /> <!-- 显示用户认证信息 -->
+
+
+
+                <ImageView
+                    android:id="@+id/ivArrowRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="2dp"
+                    android:contentDescription="@string/View_more"
+                    android:src="@drawable/ic_arrow_right_foreground" /> <!-- 箭头按钮，靠右居中 -->
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:layout_marginVertical="8dp" /> <!-- 分割线 -->
+
+        <!-- 下方是用户操作项和统计信息的线性布局 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- 我的发帖 -->
+            <TextView
+                android:id="@+id/tvMyPosts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我的发帖"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:drawableEnd="@drawable/ic_arrow_right_foreground"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp" />
+
+            <!-- 我的收藏 -->
+            <TextView
+                android:id="@+id/tvMyFavorites"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我的收藏"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:drawableEnd="@drawable/ic_arrow_right_foreground"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp" />
+
+            <!-- 我的话题 -->
+            <TextView
+                android:id="@+id/tvMyTopics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我的话题"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:drawableEnd="@drawable/ic_arrow_right_foreground"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp" />
+
+            <!-- 我的回复 -->
+            <TextView
+                android:id="@+id/tvMyReplies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="我的回复"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:drawableEnd="@drawable/ic_arrow_right_foreground"
+                android:gravity="center_vertical"
+                android:clickable="true"
+                android:focusable="true"
+                android:background="?attr/selectableItemBackground"
+                android:paddingVertical="12dp" />
+
+            <!-- 统计信息区域 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="统计信息"
+
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+                <!-- 第一行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="访问天数\n87天"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="阅读时间\n5天"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+
+                <!-- 第二行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="浏览的话题\n180"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="已读帖子\n79"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+
+                <!-- 第三行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="已送出\n313"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="已收到\n40"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+
+                <!-- 第四行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="创建的帖子\n11"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="创建的话题\n41"
+                        android:gravity="center"
+                        android:textAppearance="?attr/textAppearanceListItem" />
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        android:layout_marginVertical="8dp" />
-
-    <TextView
-        android:id="@+id/tvMyPosts"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="我的发帖"
-        android:textAppearance="?attr/textAppearanceListItem"
-        android:drawableEnd="@drawable/ic_arrow_right_foreground"
-        android:gravity="center_vertical"
-        android:paddingVertical="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?attr/selectableItemBackground" />
-
-    <TextView
-        android:id="@+id/tvMyFavorites"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="我的收藏"
-        android:textAppearance="?attr/textAppearanceListItem"
-        android:drawableEnd="@drawable/ic_arrow_right_foreground"
-        android:gravity="center_vertical"
-        android:paddingVertical="12dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:background="?attr/selectableItemBackground" />
-
-    <FrameLayout
-        android:id="@+id/flContent"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@android:color/white">
-        <!-- Content will go here -->
-    </FrameLayout>
-
-</LinearLayout>
+</ScrollView>

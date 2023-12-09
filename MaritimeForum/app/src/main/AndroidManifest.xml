@@ -20,6 +20,11 @@
         <activity
             android:name=".fragment.MyPostsActivity"
             android:exported="false" />
+        <activity android:name=".fragment.MyTopicsActivity"
+            android:exported="false" />
+        <activity android:name=".fragment.MyRepliesActivity"
+            android:exported="false" />
+
         <activity
             android:name=".fragment.AddPageActivity"
             android:exported="false" />
